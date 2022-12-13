@@ -14,6 +14,7 @@ using namespace std;
 template <class T>
 extern void read(T* memoryAllocated)
 {
+    /// todo not used yet
     cin >> memoryAllocated;
 }
 

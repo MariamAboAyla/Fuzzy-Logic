@@ -130,7 +130,7 @@ void FuzzyLogicSystem:: addVariables()
  */
 void FuzzyLogicSystem:: addFuzzySets()
 {
-    cout << "Enter the variable’s name:\n"
+    cout << "Enter the variable's name:\n"
             "--------------------------\n";
 
     string variableName;
@@ -246,6 +246,20 @@ void getOutputVariable(Rules* rulesList)
 
     }
 
+
+    cerr<<"NEW RULE:\n";
+    for(auto it: rulesList->input)
+        cerr<<it.first<<' '<<it.second<<", ";
+    cerr<<" **operations: \n";
+
+    for(auto it: rulesList->operation)
+        cerr<<it<<" -  ";
+
+    cerr<<"outputs: ";
+    for(auto it: rulesList->output)
+        cerr<<it.first<<' '<<it.second<<", ";
+
+    cerr<<"\n*****\n"<<'\n';
 
 }
 
