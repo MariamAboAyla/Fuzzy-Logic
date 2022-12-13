@@ -1,14 +1,27 @@
 #include <iostream>
 #include "FuzzyLogicSystem.h"
-
+#include "FuzzyLogicSystem.cpp"
+#include "Simulation.h"
+#include "Simulation.cpp"
 using namespace std;
 
+
+/*
+ * This function is used to read any
+ * variable, so that we could change reading from terminal
+ * to be read from file or anywhere else
+ */
+template <class T>
+extern void read(T* memoryAllocated)
+{
+    cin >> memoryAllocated;
+}
 
 void mainMenu()
 {
     FuzzyLogicSystem fuzzyLogicSystem;
 
-    cout<<"Enter the system’s name and a brief description:\n"
+    cout<<"Enter the system's name and a brief description:\n"
           "------------------------------------------------\n";
 
     string systemName;
@@ -27,10 +40,17 @@ void mainMenu()
 
 
     string choice;
-    cin >> choice;
 
     while (true) {
 
+        cout << "Main Menu:\n"
+                "==========\n"
+                "1- Add variables.\n"
+                "2- Add fuzzy sets to an existing variable.\n"
+                "3- Add rules.\n"
+                "4- Run the simulation on crisp values.\n";
+
+        cin >> choice;
         if (choice == "1") {
             fuzzyLogicSystem.addVariables();
         } else if (choice == "2") {
