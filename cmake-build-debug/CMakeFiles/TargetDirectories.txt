@@ -1,0 +1,3 @@
+D:/FCAI/YEARS/YEAR4/first term/Soft Computing/assignments/assignment3/solution/cmake-build-debug/CMakeFiles/solution.dir
+D:/FCAI/YEARS/YEAR4/first term/Soft Computing/assignments/assignment3/solution/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/FCAI/YEARS/YEAR4/first term/Soft Computing/assignments/assignment3/solution/cmake-build-debug/CMakeFiles/rebuild_cache.dir
