@@ -13,7 +13,7 @@ using namespace std;
 struct Rules
 {
 
-// Input
+    // Input
     vector<pair<string, string>> input;
 
     // Output

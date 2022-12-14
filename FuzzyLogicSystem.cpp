@@ -209,7 +209,7 @@ void FuzzyLogicSystem:: addFuzzySets()
  * function that checks whether the rules are written
  * in a correct way or not
  */
-bool isValidRule(vector<pair<string,string>>& input, vector<pair<string,string>>& output, vector<string>operation)
+bool isValidRule(vector<pair<string,string>>& input, vector<pair<string,string>>& output, vector<string>catoperation)
 {
     if (input.empty() || output.empty()) {
         cout << "Error: invalid rule! check input, output and a valid operator!\n";
@@ -231,13 +231,22 @@ void getOutputVariable(Rules* rulesList)
     string setValue;
     cin >> setValue;
 
+
     rulesList->output.emplace_back(variableName, setValue);
-    string op;
+
+    // Handling multiple output variables
+    /*
+    char op;
     while (true)
     {
+        //// todo : what to do to know it is the end of line or not !
+    ///// todo : handle multiple output variables when read from files !
         cin >> op;
-        if (op == "\n" || op == "\r" || op == "\r\n")
+        if (op == '\0')
+        {
+            cerr<<"\nend of rule\n";
             break;
+        }
 
         cin >> variableName;
         cin >>  setValue;
@@ -245,21 +254,8 @@ void getOutputVariable(Rules* rulesList)
         rulesList->output.emplace_back(variableName, setValue);
 
     }
+*/
 
-
-    cerr<<"NEW RULE:\n";
-    for(auto it: rulesList->input)
-        cerr<<it.first<<' '<<it.second<<", ";
-    cerr<<" **operations: \n";
-
-    for(auto it: rulesList->operation)
-        cerr<<it<<" -  ";
-
-    cerr<<"outputs: ";
-    for(auto it: rulesList->output)
-        cerr<<it.first<<' '<<it.second<<", ";
-
-    cerr<<"\n*****\n"<<'\n';
 
 }
 
@@ -304,13 +300,14 @@ void FuzzyLogicSystem:: addRules()
             // means more inputs and operations
             rulesList.operation.push_back(op);
 
-            while(op != "=>")
+            while(true)
             {
                 cin >> variableName;
                 cin >> setName;
                 rulesList.input.emplace_back(variableName, setName);
 
                 cin >> op;
+
                 if(op == "=>")
                     break;
 
